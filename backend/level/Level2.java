@@ -81,8 +81,16 @@ public class Level2 extends Grid {
         }
 
         @Override
-        public int getGoldenBoardScore(){ return MAX_GOLDEN_CELLS - goldenCells;}
+        public String printScore() {
+            return "Golden Cells Left: " + getGoldenCellsScore() + "   |  "+ getScore();
+        }
+
+        private int getGoldenCellsScore(){
+            return MAX_GOLDEN_CELLS- goldenCells;
+        }
     }
+    
+ 
 
     @Override
     public boolean tryMove(int i1, int j1, int i2, int j2) {
