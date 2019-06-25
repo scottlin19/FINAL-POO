@@ -62,6 +62,6 @@ public class CandyGame implements GameListener {
 	public void gridUpdated() {
 		//
 	}
-	public int getGoldenBoardScore(){ return state.getGoldenBoardScore();}
+
 
 }
