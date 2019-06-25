@@ -2,6 +2,7 @@ package game.frontend;
 
 import game.backend.CandyGame;
 import game.backend.level.Level1;
+import game.backend.level.Level2;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -29,7 +30,7 @@ public class GameApp extends Application {
 		hBox1.getChildren().addAll(label,button,button1,button2);
 		primaryStage.setScene(scene1);
 
-		CandyGame game = new CandyGame(Level1.class);
+		CandyGame game = new CandyGame(Level2.class);
 		CandyFrame frame = new CandyFrame(game);
 		Scene scene = new Scene(frame);
 		primaryStage.setResizable(false);

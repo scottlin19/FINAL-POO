@@ -4,7 +4,7 @@ import game.backend.CandyGame;
 import game.backend.GameListener;
 import game.backend.cell.Cell;
 import game.backend.element.Element;
-
+import game.backend.GameState;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Point2D;
@@ -36,6 +36,7 @@ public class CandyFrame extends VBox {
 		game.addGameListener(listener = new GameListener() {
 			@Override
 			public void gridUpdated() {
+
 				Timeline timeLine = new Timeline();
 				Duration frameGap = Duration.millis(100);
 				Duration frameTime = Duration.ZERO;
@@ -46,8 +47,9 @@ public class CandyFrame extends VBox {
 						Cell cell = CandyFrame.this.game.get(i, j);
 						Element element = cell.getContent();
 						Image image = images.getImage(element);
-						timeLine.getKeyFrames().add(new KeyFrame(frameTime, e -> boardPanel.setImage(finalI, finalJ, null)));
-						timeLine.getKeyFrames().add(new KeyFrame(frameTime, e -> boardPanel.setImage(finalI, finalJ, image)));
+
+						timeLine.getKeyFrames().add(new KeyFrame(frameTime, e -> boardPanel.setImage(finalI, finalJ, null,false)));
+						timeLine.getKeyFrames().add(new KeyFrame(frameTime, e -> boardPanel.setImage(finalI, finalJ, image,cell.isGolden())));
 					}
 					frameTime = frameTime.add(frameGap);
 				}
@@ -71,6 +73,10 @@ public class CandyFrame extends VBox {
 					System.out.println("Get second = " +  newPoint);
 					game().tryMove((int)lastPoint.getX(), (int)lastPoint.getY(), (int)newPoint.getX(), (int)newPoint.getY());
 					String message = ((Long)game().getScore()).toString();
+					if(game().getGoldenBoardScore() >= 0){
+						System.out.println("Es golden board");
+						message = String.format("Golden Cells Left: %d | Score: %s",game().getGoldenBoardScore(),message);
+					}
 					if (game().isFinished()) {
 						if (game().playerWon()) {
 							message = message + " Finished - Player Won!";

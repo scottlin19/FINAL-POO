@@ -25,4 +25,8 @@ public abstract class GameState {
 	
 	public abstract boolean playerWon();
 
+	public int getGoldenBoardScore(){
+		return -1;
+	}
+
 }
