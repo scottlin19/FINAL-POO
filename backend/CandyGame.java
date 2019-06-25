@@ -58,6 +58,10 @@ public class CandyGame implements GameListener {
 		state.addScore(e.getScore());
 	}
 	
+	public String printScore(){
+		return state.printScore();
+	}
+	
 	@Override
 	public void gridUpdated() {
 		//
