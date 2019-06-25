@@ -8,7 +8,6 @@ import javafx.scene.image.ImageView;
 
 public class Level2 extends Grid {
 
-    private static int REQUIRED_SCORE = 5000;
     private static int MAX_MOVES = 20;
     private static int MAX_GOLDEN_CELLS = SIZE* SIZE;
     private ImageView[][] cells;
@@ -22,7 +21,7 @@ public class Level2 extends Grid {
 
     @Override
     protected GameState newState() {
-        return new Level2.Level2State(REQUIRED_SCORE, MAX_MOVES);
+        return new Level2.Level2State(MAX_MOVES);
     }
 
     @Override
