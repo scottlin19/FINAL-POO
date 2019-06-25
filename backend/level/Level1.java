@@ -81,6 +81,10 @@ public class Level1 extends Grid {
 		public boolean playerWon() {
 			return getScore() > requiredScore;
 		}
-	}
+		@Override
+      		  public String printScore() {
+         	  	return ((Long)getScore()).toString();
+      		  }
+	}	
 
 }

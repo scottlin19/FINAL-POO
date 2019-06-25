@@ -72,11 +72,7 @@ public class CandyFrame extends VBox {
 				if (newPoint != null) {
 					System.out.println("Get second = " +  newPoint);
 					game().tryMove((int)lastPoint.getX(), (int)lastPoint.getY(), (int)newPoint.getX(), (int)newPoint.getY());
-					String message = ((Long)game().getScore()).toString();
-					if(game().getGoldenBoardScore() >= 0){
-						System.out.println("Es golden board");
-						message = String.format("Golden Cells Left: %d | Score: %s",game().getGoldenBoardScore(),message);
-					}
+					String message = game().printScore();
 					if (game().isFinished()) {
 						if (game().playerWon()) {
 							message = message + " Finished - Player Won!";
