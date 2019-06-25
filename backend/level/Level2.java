@@ -65,8 +65,7 @@ public class Level2 extends Grid {
     private class Level2State extends GameState {
         private long maxMoves;
 
-        public Level2State(long requiredScore, int maxMoves) {
-            this.requiredScore = requiredScore;
+        public Level2State(int maxMoves) {
             this.maxMoves = maxMoves;
         }
 
