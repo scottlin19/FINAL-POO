@@ -24,19 +24,19 @@ public class GameApp extends Application {
 	public void start(Stage primaryStage) {
 
 		Label label = new Label("Select level:");
-		Button button = new Button("Level 1");
-		Button button1 = new Button(("Level 2"));
-		Button button2 = new Button("Level 3");
+		Button buttonLv1 = new Button("Level 1");
+		Button buttonLv2 = new Button(("Level 2"));
+		Button buttonLv3 = new Button("Level 3");
 		VBox vBox = new VBox(5);  // layout
 		HBox hBox = new HBox(5);
 		Scene scene1 = new Scene(vBox,800,600);
-		hBox.getChildren().addAll(button,button1,button2);
+		hBox.getChildren().addAll(buttonLv1,buttonLv2,buttonLv3);
 		hBox.setAlignment(Pos.CENTER);
 		vBox.getChildren().addAll(label,hBox);
 		primaryStage.setScene(scene1);
 		vBox.setAlignment(Pos.CENTER);
 
-		button.setOnAction(new EventHandler<ActionEvent>() {
+		buttonLv1.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				CandyGame game = new CandyGame(Level1.class);
@@ -46,7 +46,7 @@ public class GameApp extends Application {
 			}
 		});
 
-		button1.setOnAction(new EventHandler<ActionEvent>() {
+		buttonLv2.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 
@@ -57,7 +57,7 @@ public class GameApp extends Application {
 			}
 		});
 
-		button2.setOnAction(new EventHandler<ActionEvent>() {
+		buttonLv3.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 			}
