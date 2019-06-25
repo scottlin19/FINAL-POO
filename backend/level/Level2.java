@@ -77,7 +77,7 @@ public class Level2 extends Grid {
 
 
         public boolean playerWon() {
-            return getScore() > requiredScore || goldenCells == MAX_GOLDEN_CELLS;
+            return  goldenCells == MAX_GOLDEN_CELLS;
         }
 
         @Override
