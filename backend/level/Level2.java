@@ -15,7 +15,6 @@ public class Level2 extends Grid {
     private static int REQUIRED_SCORE = 5000;
     private static int MAX_MOVES = 20;
     private static int MAX_GOLDEN_CELLS = SIZE* SIZE;
-    private ImageView[][] cells;
 
     private int goldenCells;
 
