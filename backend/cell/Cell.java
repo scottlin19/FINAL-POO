@@ -4,16 +4,16 @@ import game.backend.Grid;
 import game.backend.element.Element;
 import game.backend.element.Nothing;
 import game.backend.move.Direction;
-import javafx.scene.effect.Effect;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+
 
 public class Cell {
 	
 	private Grid grid;
 	private Cell[] around = new Cell[Direction.values().length];
 	private Element content;
-	private Effect effect;
-
-	private boolean isGolden;
 	
 	public Cell(Grid grid) {
 		this.grid = grid;
@@ -96,14 +96,10 @@ public class Cell {
 		this.content = content;
 	}
 
-	public Effect getEffect(){
-		return effect;
-	}
 
-	public void setEffect(Effect effect){
-		this.effect = effect;
-	}
+	public ImageView getImage(Image image){
 
+		return new ImageView(image);
+	}
 
 }
-
