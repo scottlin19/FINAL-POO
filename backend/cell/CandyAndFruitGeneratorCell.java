@@ -16,13 +16,13 @@ public class CandyAndFruitGeneratorCell extends CandyGeneratorCell {
         int candyLenght = CandyColor.values().length;
 
         int fruitLenght = FruitType.values().length;
-        System.out.println("cl = "+candyLenght +  " | fl = "+fruitLenght);
+ 
         int i = (int)(Math.random() * (candyLenght + fruitLenght));
-        System.out.println("i = " + i);
+     
         if(i < candyLenght){
             return new Candy(CandyColor.values()[i]);
         }
-        System.out.println("Fruit i: " + (i-candyLenght));
+     
         return new Fruit(FruitType.values()[i-candyLenght]);
 
     }
