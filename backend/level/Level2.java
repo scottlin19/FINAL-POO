@@ -121,6 +121,7 @@ public class Level2 extends Grid {
 
 
 
+   
     public void setColToGolden(int col){
 
         for(int i = 0; i < SIZE; i++){
@@ -128,7 +129,7 @@ public class Level2 extends Grid {
                     getCell(i,col).setEffect(Effects.GOLDEN.getEffect());
                     goldenCells++;
                 }
-                
+
         }
     }
 
@@ -140,7 +141,7 @@ public class Level2 extends Grid {
                 getCell(row,i).setEffect(Effects.GOLDEN.getEffect());
                 goldenCells++;
             }
-          
+
         }
     }
 
