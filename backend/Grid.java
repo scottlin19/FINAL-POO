@@ -1,11 +1,13 @@
 package game.backend;
 
 import game.backend.cell.Cell;
+import game.backend.cell.EffectCell;
 import game.backend.element.Candy;
 import game.backend.element.CandyColor;
 import game.backend.element.Element;
 import game.backend.move.Move;
 import game.backend.move.MoveMaker;
+
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ public abstract class Grid {
 	
 	public static final int SIZE = 9;
 
-	private Cell[][] g = new Cell[SIZE][SIZE];
+	private EffectCell[][] g = new EffectCell[SIZE][SIZE];
 	private Map<Cell, Point> gMap = new HashMap<>();
 	private GameState state;
 	private List<GameListener> listeners = new ArrayList<>();
@@ -26,6 +28,7 @@ public abstract class Grid {
 	
 	protected abstract GameState newState();
 	protected abstract void fillCells();
+
 	
 	protected Cell[][] g() {
 		return g;
@@ -40,7 +43,7 @@ public abstract class Grid {
 		figureDetector = new FigureDetector(this);
 		for (int i = 0; i < SIZE; i++) {
 			for (int j = 0; j < SIZE; j++) {
-				g[i][j] = new Cell(this);
+				g[i][j] = new EffectCell(this,null);
 				gMap.put(g[i][j], new Point(i,j));
 			}
 		}
@@ -52,9 +55,11 @@ public abstract class Grid {
 		return g[i][j].getContent();
 	}
 	
-	public Cell getCell(int i, int j) {
+	public EffectCell getCell(int i, int j) {
 		return g[i][j];
 	}
+
+
 
 	public void fallElements() {
 		int i = SIZE - 1;
@@ -86,10 +91,12 @@ public abstract class Grid {
 		Move move = moveMaker.getMove(i1, j1, i2, j2);
 		swapContent(i1, j1, i2, j2);
 		if (move.isValid()) {
+			System.out.println("Valido");
 			move.removeElements();
 			fallElements();
 			return true;
 		} else {
+			System.out.println("Invalido");
 			swapContent(i1, j1, i2, j2);
 			return false;
 		}
@@ -120,6 +127,7 @@ public abstract class Grid {
 	}
 
 	public void swapContent(int i1, int j1, int i2, int j2) {
+		System.out.println("Se cambiaron");
 		Element e = g[i1][j1].getContent();
 		g[i1][j1].setContent(g[i2][j2].getContent());
 		g[i2][j2].setContent(e);
@@ -148,5 +156,7 @@ public abstract class Grid {
 			gl.cellExplosion(e);
 		}
 	}
+
+
 
 }
