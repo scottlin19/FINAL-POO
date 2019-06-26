@@ -1,11 +1,11 @@
 package game.frontend;
 
+import game.backend.cell.Cell;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
-import javafx.scene.effect.Light;
-import javafx.scene.effect.Lighting;
-import javafx.scene.paint.Color;
+
 
 public class BoardPanel extends TilePane {
 
@@ -24,16 +24,13 @@ public class BoardPanel extends TilePane {
 			}
 		}
 	}
-	public void setImage(int row, int column, Image image,boolean isGolden) {
-
-		if(isGolden && cells[row][column].getEffect() == null){
-			System.out.println("Las hizo golden");
-			Light.Distant spotLight = new Light.Distant();
-			spotLight.setColor(Color.YELLOW);
-			spotLight.setElevation(100);
-			Lighting lighting = new Lighting(spotLight);
-			cells[row][column].setEffect(lighting);
+	
+	public void setImage(int row, int column, Image image, Cell cell) {
+		Effect effect = cell.getEffect();
+		if(effect != null) {
+			cells[row][column].setEffect(effect);
 		}
+
 		cells[row][column].setImage(image);
 	}
 
