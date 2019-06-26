@@ -126,8 +126,9 @@ public class Level2 extends Grid {
         for(int i = 0; i < SIZE; i++){
                 if(getCell(i,col).getEffect() == null){
                     getCell(i,col).setEffect(Effects.GOLDEN.getEffect());
+                    goldenCells++;
                 }
-                goldenCells++;
+                
         }
     }
 
@@ -137,8 +138,9 @@ public class Level2 extends Grid {
 
             if(getCell(row,i).getEffect() == null){
                 getCell(row,i).setEffect(Effects.GOLDEN.getEffect());
+                goldenCells++;
             }
-            goldenCells++;
+          
         }
     }
 
