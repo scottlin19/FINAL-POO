@@ -1,9 +1,9 @@
 package game.backend.element;
 
-public class Cherry extends Element {
-    @Override
-    public boolean isMovable() {
-        return true;
+public class Cherry extends Fruit {
+   
+    public Cherry(FruitType type) {
+        super(type);
     }
 
     @Override
