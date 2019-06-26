@@ -19,7 +19,7 @@ public abstract class Grid {
 	
 	public static final int SIZE = 9;
 
-	private EffectCell[][] g = new EffectCell[SIZE][SIZE];
+	private Cell[][] g = new Cell[SIZE][SIZE];
 	private Map<Cell, Point> gMap = new HashMap<>();
 	private GameState state;
 	private List<GameListener> listeners = new ArrayList<>();
@@ -43,7 +43,7 @@ public abstract class Grid {
 		figureDetector = new FigureDetector(this);
 		for (int i = 0; i < SIZE; i++) {
 			for (int j = 0; j < SIZE; j++) {
-				g[i][j] = new EffectCell(this,null);
+				g[i][j] = new Cell(this);
 				gMap.put(g[i][j], new Point(i,j));
 			}
 		}
@@ -55,7 +55,7 @@ public abstract class Grid {
 		return g[i][j].getContent();
 	}
 	
-	public EffectCell getCell(int i, int j) {
+	public Cell getCell(int i, int j) {
 		return g[i][j];
 	}
 
