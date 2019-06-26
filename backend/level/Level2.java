@@ -10,11 +10,11 @@ import javafx.scene.effect.Lighting;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 
-public class Level2 extends Grid {
+public class Level2 extends Level {
 
     private static int REQUIRED_SCORE = 5000;
     private static int MAX_MOVES = 20;
-    private static int MAX_GOLDEN_CELLS = SIZE* SIZE;
+    private static int MAX_GOLDEN_CELLS = SIZE * SIZE;
 
     private int goldenCells;
 
@@ -22,7 +22,7 @@ public class Level2 extends Grid {
     private Cell candyGenCell;
     private Effect effect;
 
-    public Level2(){
+    public Level2() {
         Light.Distant spotLight = new Light.Distant();
         spotLight.setColor(Color.YELLOW);
         spotLight.setElevation(100);
@@ -34,43 +34,6 @@ public class Level2 extends Grid {
     @Override
     protected GameState newState() {
         return new Level2.Level2State(REQUIRED_SCORE, MAX_MOVES);
-    }
-
-    @Override
-    protected void fillCells() {
-
-        wallCell = new Cell(this);
-        wallCell.setContent(new Wall());
-        candyGenCell = new CandyGeneratorCell(this);
-
-        //corners
-        g()[0][0].setAround(candyGenCell, g()[1][0], wallCell, g()[0][1]);
-        g()[0][SIZE-1].setAround(candyGenCell, g()[1][SIZE-1], g()[0][SIZE-2], wallCell);
-        g()[SIZE-1][0].setAround(g()[SIZE-2][0], wallCell, wallCell, g()[SIZE-1][1]);
-        g()[SIZE-1][SIZE-1].setAround(g()[SIZE-2][SIZE-1], wallCell, g()[SIZE-1][SIZE-2], wallCell);
-
-        //upper line cells
-        for (int j = 1; j < SIZE-1; j++) {
-            g()[0][j].setAround(candyGenCell,g()[1][j],g()[0][j-1],g()[0][j+1]);
-        }
-        //bottom line cells
-        for (int j = 1; j < SIZE-1; j++) {
-            g()[SIZE-1][j].setAround(g()[SIZE-2][j], wallCell, g()[SIZE-1][j-1],g()[SIZE-1][j+1]);
-        }
-        //left line cells
-        for (int i = 1; i < SIZE-1; i++) {
-            g()[i][0].setAround(g()[i-1][0],g()[i+1][0], wallCell ,g()[i][1]);
-        }
-        //right line cells
-        for (int i = 1; i < SIZE-1; i++) {
-            g()[i][SIZE-1].setAround(g()[i-1][SIZE-1],g()[i+1][SIZE-1], g()[i][SIZE-2], wallCell);
-        }
-        //central cells
-        for (int i = 1; i < SIZE-1; i++) {
-            for (int j = 1; j < SIZE-1; j++) {
-                g()[i][j].setAround(g()[i-1][j],g()[i+1][j],g()[i][j-1],g()[i][j+1]);
-            }
-        }
     }
 
     private class Level2State extends GameState {
@@ -94,11 +57,11 @@ public class Level2 extends Grid {
 
         @Override
         public String printScore() {
-            return "Golden Cells Left: " + getGoldenCellsScore() + "   |  "+ getScore();
+            return "Golden Cells Left: " + getGoldenCellsScore() + "   |  " + getScore();
         }
 
-        private int getGoldenCellsScore(){
-            return MAX_GOLDEN_CELLS- goldenCells;
+        private int getGoldenCellsScore() {
+            return MAX_GOLDEN_CELLS - goldenCells;
         }
     }
 
@@ -107,9 +70,9 @@ public class Level2 extends Grid {
         boolean ret;
         if (ret = super.tryMove(i1, j1, i2, j2)) {
             state().addMove();
-            if(i1 == i2){
+            if (i1 == i2) {
                 setRowToGolden(i1);
-            }else{
+            } else {
                 setColToGolden(j1);
             }
         }
@@ -117,11 +80,10 @@ public class Level2 extends Grid {
     }
 
 
-
-    public void setColToGolden(int col){
+    public void setColToGolden(int col) {
         Cell cell;
-        for(int i = 0; i < SIZE; i++){
-            if((cell = g()[i][col]).getEffect() == null) {
+        for (int i = 0; i < SIZE; i++) {
+            if ((cell = g()[i][col]).getEffect() == null) {
                 System.out.println("le metio effect");
                 cell.setEffect(effect);
                 goldenCells++;
@@ -129,14 +91,15 @@ public class Level2 extends Grid {
         }
     }
 
-    public void setRowToGolden(int row){
+    public void setRowToGolden(int row) {
         Cell cell;
-        for(int i = 0; i < SIZE; i++){
-            if((cell = g()[row][i]).getEffect() == null) {
+        for (int i = 0; i < SIZE; i++) {
+            if ((cell = g()[row][i]).getEffect() == null) {
                 System.out.println("le metio effect");
-               cell.setEffect(effect);
+                cell.setEffect(effect);
                 goldenCells++;
             }
         }
     }
+}
 
