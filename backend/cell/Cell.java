@@ -14,6 +14,7 @@ public class Cell {
 	private Grid grid;
 	private Cell[] around = new Cell[Direction.values().length];
 	private Element content;
+	private Effect effect;
 	
 	public Cell(Grid grid) {
 		this.grid = grid;
@@ -96,10 +97,17 @@ public class Cell {
 		this.content = content;
 	}
 
-
 	public ImageView getImage(Image image){
+		ImageView imageView = new ImageView(image);
+		imageView.setEffect(effect);
+		return imageView;
+	}
 
-		return new ImageView(image);
+	public Effect getEffect(){
+		return effect;
+	}
+	public void setEffect(Effect effect){
+		this.effect = effect;
 	}
 
 }
