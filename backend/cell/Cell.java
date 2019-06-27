@@ -63,10 +63,13 @@ public class Cell {
 	}
 	
 	private void explode(Direction d) {
-		clearContent();
+		if(this.getContent().canExplode()) {
+			clearContent();
+		}
 		if (this.around[d.ordinal()] != null)
 			this.around[d.ordinal()].explode(d);
 	}
+	
 	
 	public Element getAndClearContent() {
 		if (content.isMovable()) {
