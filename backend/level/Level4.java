@@ -70,19 +70,26 @@ public class Level4 extends Grid {
         }
     }
 
-    @Override
+     @Override
     public boolean tryMove(int i1, int j1, int i2, int j2) {
+        System.out.println("se llama truymove");
         boolean ret;
-        if (ret = super.tryMove(i1, j1, i2, j2) && !state().gameOver()) {
+        if (ret = super.tryMove(i1, j1, i2, j2)) {
             state().addMove();
-            for(int i = 0; i < SIZE ; i++){
-                if(get(SIZE-1,i).isFruit()){
-                    getCell(SIZE-1,i).clearContent();
-                    fallElements();
+        }
+        for(int i = 0; i < SIZE ; i++) {
+            if (get(SIZE - 1, i).isFruit()) {
+                System.out.println("Hay fruta en g[8][" + i + "]");
+                getCell(SIZE - 1, i).clearContent();
+                fallElements();
+
+                if (fruitScore < REQUIRED_FRUIT_SCORE) {
+                    System.out.println("Suma fruta trymove");
                     fruitScore++;
                 }
             }
         }
+
         return ret;
     }
     @Override
@@ -95,7 +102,11 @@ public class Level4 extends Grid {
                     if (g()[i][j].fallUpperContent()) {
                         if(i == SIZE -1 && g()[i][j].getContent().isFruit()){
                             g()[i][j].clearContent();
-                            fruitScore++;
+                            System.out.println("Hay fruta en g["+i+"]["+j+"]");
+                            if(fruitScore < REQUIRED_FRUIT_SCORE) {
+                                System.out.println("Suma fruta fallemlements");
+                                fruitScore++;
+                            }
                         }
                         i = SIZE;
                         j = -1;
@@ -108,6 +119,15 @@ public class Level4 extends Grid {
         }
     }
 
+     @Override
+     public void clearContent(int i, int j) {
+         if(!get(i,j).isFruit()) {
+
+             getCell(i,j).clearContent();
+         }else{
+             System.out.println("g["+i+"]["+j+"] es fruta");
+         }
+     }
 
     private class Level4State extends GameState {
         private long requiredScore;
