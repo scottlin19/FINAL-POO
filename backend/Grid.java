@@ -106,7 +106,7 @@ public abstract class Grid {
 		if (gMap.containsKey(cell)) {
 			Point p = gMap.get(cell);
 			Figure f = figureDetector.checkFigure(p.x, p.y);
-			if (f != null) {
+			if (f != null && !cell.getContent().isFruit()) {
 				removeFigure(p.x, p.y, f);
 			}
 			return f;
