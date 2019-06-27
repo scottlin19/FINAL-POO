@@ -27,12 +27,13 @@ public class CandyMove extends Move {
 
 	@Override
 	public void removeElements() {
-		if (f1 != null) {
+		if (f1 != null && !grid.get(i1,j1).canFormFigures()) {
 			detector.removeFigure(i1, j1, f1);
 		}
-		if (f2 != null) {
+		if (f2 != null  && !grid.get(i2,j2).canFormFigures()) {
 			detector.removeFigure(i2, j2, f2);
 		}
 	}
 
 }
+
