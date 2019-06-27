@@ -32,6 +32,7 @@ public class CandyFrame extends VBox {
 		scorePanel = new ScorePanel();
 		getChildren().add(scorePanel);
 		game.initGame();
+		scorePanel.updateScore(game.printScore());
 		GameListener listener;
 		game.addGameListener(listener = new GameListener() {
 			@Override
