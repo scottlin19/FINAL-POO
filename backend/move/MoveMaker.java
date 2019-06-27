@@ -6,7 +6,7 @@ import game.backend.element.Candy;
 import game.backend.element.HorizontalStripedCandy;
 import game.backend.element.VerticalStripedCandy;
 import game.backend.element.WrappedCandy;
-
+import game.backend.element.Fruit;
 import java.util.HashMap;
 import java.util.Map;
 

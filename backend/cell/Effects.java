@@ -19,5 +19,4 @@ public enum Effects {
 
     public abstract Effect getEffect();
 
-
 }

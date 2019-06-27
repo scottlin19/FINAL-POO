@@ -11,6 +11,9 @@ public class Fruit extends Element {
         this.type = type;
     }
 
+    public Fruit(){}
+
+
     public FruitType getType() {
         return type;
     }

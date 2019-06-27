@@ -1,7 +1,6 @@
 package game.backend;
 
 import game.backend.cell.Cell;
-import game.backend.cell.EffectCell;
 import game.backend.element.Candy;
 import game.backend.element.CandyColor;
 import game.backend.element.Element;

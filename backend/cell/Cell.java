@@ -6,7 +6,7 @@ import game.backend.element.Nothing;
 import game.backend.move.Direction;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
+import javafx.scene.effect.Effect;
 
 
 public class Cell {

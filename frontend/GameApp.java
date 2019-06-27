@@ -3,6 +3,7 @@ package game.frontend;
 import game.backend.CandyGame;
 import game.backend.level.Level1;
 import game.backend.level.Level2;
+import game.backend.level.Level4;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -60,6 +61,10 @@ public class GameApp extends Application {
 		buttonLv3.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
+				CandyGame game = new CandyGame(Level4.class);
+				CandyFrame frame = new CandyFrame(game);
+				Scene scene = new Scene(frame);
+				primaryStage.setScene(scene);
 			}
 		});
 
