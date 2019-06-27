@@ -5,6 +5,7 @@ import game.backend.Grid;
 import game.backend.cell.CandyAndFruitGeneratorCell;
 import game.backend.cell.Cell;
 import game.backend.element.Wall;
+import game.backend.cell.CandyGeneratorCell;
 
 public class Level4 extends Grid {
 
@@ -38,10 +39,6 @@ public class Level4 extends Grid {
         g()[SIZE-1][SIZE-1].setAround(g()[SIZE-2][SIZE-1], wallCell, g()[SIZE-1][SIZE-2], wallCell);
 
 
-        //upper line cells
-        for (int j = 1; j < SIZE-1; j++) {
-            g()[0][j].setAround(candyAndFruitGenCell,g()[1][j],g()[0][j-1],g()[0][j+1]);
-        }
 
         //upper line cells
         for (int j = 1; j < SIZE-1; j++) {
