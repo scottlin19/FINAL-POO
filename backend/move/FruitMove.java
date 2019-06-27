@@ -38,5 +38,3 @@ public class FruitMove extends Move {
             detector.removeFigure(i2, j2, f2);
         }
     }
-}
-
