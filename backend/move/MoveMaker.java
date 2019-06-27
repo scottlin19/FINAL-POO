@@ -37,7 +37,7 @@ public class MoveMaker {
 		map.put(new HorizontalStripedCandy().getKey() + new WrappedCandy().getKey(), new WrappedStripedMove(grid));
 		map.put(new HorizontalStripedCandy().getKey() + new Bomb().getKey(), new BombStrippedMove(grid));
 
-		map.put(new HorizontalStripedCandy().getKey() + new Bomb().getKey(), new FruitMove(grid));
+		map.put(new HorizontalStripedCandy().getKey() + new Fruit().getKey(), new FruitMove(grid));
 
 
 		map.put(new VerticalStripedCandy().getKey() + new Candy().getKey(), new CandyMove(grid));
