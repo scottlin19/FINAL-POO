@@ -11,13 +11,16 @@ public class Level4 extends Grid {
 
     private static int REQUIRED_SCORE = 5000;
     private static int MAX_MOVES = 20;
+    private static int REQUIRED_FRUIT_SCORE = 5;
+
+    private int fruitScore;
 
     private Cell wallCell;
     private Cell candyAndFruitGenCell;
 
     @Override
     protected GameState newState() {
-        return new Level4.Level4State(REQUIRED_SCORE, MAX_MOVES);
+        return new Level4.Level4State(REQUIRED_SCORE, MAX_MOVES,REQUIRED_FRUIT_SCORE);
     }
 
     @Override
@@ -60,19 +63,51 @@ public class Level4 extends Grid {
     @Override
     public boolean tryMove(int i1, int j1, int i2, int j2) {
         boolean ret;
-        if (ret = super.tryMove(i1, j1, i2, j2)) {
+        if (ret = super.tryMove(i1, j1, i2, j2) && !state().gameOver()) {
             state().addMove();
+            for(int i = 0; i < SIZE ; i++){
+                if(get(SIZE-1,i).isFruit()){
+                    getCell(SIZE-1,i).clearContent();
+                    fallElements();
+                    fruitScore++;
+                }
+            }
         }
         return ret;
     }
+    @Override
+    public void fallElements() {
+        int i = SIZE - 1;
+        while (i >= 0) {
+            int j = 0;
+            while (j < SIZE) {
+                if (g()[i][j].isEmpty()) {
+                    if (g()[i][j].fallUpperContent()) {
+                        if(i == SIZE -1 && g()[i][j].getContent().isFruit()){
+                            g()[i][j].clearContent();
+                            fruitScore++;
+                        }
+                        i = SIZE;
+                        j = -1;
+                        break;
+                    }
+                }
+                j++;
+            }
+            i--;
+        }
+    }
+
 
     private class Level4State extends GameState {
         private long requiredScore;
+        private long requiredFruitScore;
         private long maxMoves;
 
-        public Level4State(long requiredScore, int maxMoves) {
+        public Level4State(long requiredScore, int maxMoves,int requiredFruitScore) {
             this.requiredScore = requiredScore;
             this.maxMoves = maxMoves;
+            this.requiredFruitScore = requiredFruitScore;
         }
 
         public boolean gameOver() {
@@ -80,13 +115,19 @@ public class Level4 extends Grid {
         }
 
         public boolean playerWon() {
-            return getScore() > requiredScore;
+            return getFruitScore()  >= requiredFruitScore;
         }
 
         @Override
         public String printScore() {
-            return ((Long)getScore()).toString();
+            return "FRUITS: "+(requiredFruitScore -  getFruitScore()) +" | MOVES: "+(maxMoves - getMoves()) + " | "+ getScore();
         }
+
+
+    }
+
+    public int getFruitScore(){
+        return fruitScore;
     }
 
 }
