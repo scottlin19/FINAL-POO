@@ -7,24 +7,34 @@ import java.util.Objects;
 public class Fruit extends Element {
     private FruitType type;
 
+    public Fruit() {
+    }
+
     public Fruit(FruitType type) {
         this.type = type;
     }
-
-    public Fruit(){}
-
 
     public FruitType getType() {
         return type;
     }
 
-    public void setType(FruitType type) {
-        this.type = type;
+    @Override
+    public boolean canFormFigures(){
+
+        return false;
+    }
+
+    @Override
+    public boolean canExplode(){
+        return false;
     }
 
     @Override
     public boolean isFruit(){
         return true;
+    }
+    public void setType(FruitType type) {
+        this.type = type;
     }
 
     @Override

@@ -62,8 +62,12 @@ public class Level4 extends Grid {
                 g()[i][j].setAround(g()[i-1][j],g()[i+1][j],g()[i][j-1],g()[i][j+1]);
             }
         }
-        for(int i = 0; i < SIZE-1;i++){
-            getCell(SIZE-1,i).setContent(candyGenCell.getContent());
+         for(int i = 0; i < SIZE-1;i++) {
+
+            getCell(SIZE - 1, i).setContent(candyGenCell.getContent());
+            if (tryRemove(getCell(SIZE - 1, i)) != null) {
+                i = 0;
+            }
         }
     }
 
