@@ -21,7 +21,10 @@ public class Fruit extends Element {
     public void setType(FruitType type) {
         this.type = type;
     }
-
+  @Override
+    public boolean isFruit(){
+        return true;
+    }
     @Override
     public boolean isMovable() {
         return true;
