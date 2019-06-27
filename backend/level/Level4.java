@@ -4,6 +4,7 @@ import game.backend.GameState;
 import game.backend.Grid;
 import game.backend.cell.CandyAndFruitGeneratorCell;
 import game.backend.cell.Cell;
+import game.backend.element.Element;
 import game.backend.element.Wall;
 import game.backend.cell.CandyGeneratorCell;
 
@@ -37,8 +38,6 @@ public class Level4 extends Grid {
         g()[0][SIZE-1].setAround(candyAndFruitGenCell, g()[1][SIZE-1], g()[0][SIZE-2], wallCell);
         g()[SIZE-1][0].setAround(g()[SIZE-2][0], wallCell, wallCell, g()[SIZE-1][1]);
         g()[SIZE-1][SIZE-1].setAround(g()[SIZE-2][SIZE-1], wallCell, g()[SIZE-1][SIZE-2], wallCell);
-
-
 
         //upper line cells
         for (int j = 1; j < SIZE-1; j++) {
@@ -123,10 +122,10 @@ public class Level4 extends Grid {
      @Override
      public void clearContent(int i, int j) {
          if(!get(i,j).isFruit()) {
-
              getCell(i,j).clearContent();
          }else{
              System.out.println("g["+i+"]["+j+"] es fruta");
+             System.out.println("borra");
          }
      }
 

@@ -10,8 +10,6 @@ import game.backend.element.VerticalStripedCandy;
 import game.backend.element.Wall;
 import game.backend.element.WrappedCandy;
 import javafx.scene.image.Image;
-import game.backend.element.Cherry;
-import game.backend.element.Hazelnut;
 import game.backend.cell.FruitType;
 import game.backend.element.Fruit;
 

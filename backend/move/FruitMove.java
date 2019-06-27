@@ -20,10 +20,10 @@ public class FruitMove extends Move {
     @Override
     public boolean internalValidation() {
         this.detector = new FigureDetector(grid);
-        if(grid.get(i1,j1).canFormFigures()) {
+        if (grid.get(i1, j1).canFormFigures()) {
             f1 = detector.checkFigure(i1, j1);
         }
-        if(grid.get(i2,j2).canFormFigures()) {
+        if (grid.get(i2, j2).canFormFigures()) {
             f2 = detector.checkFigure(i2, j2);
         }
         return f1 != null || f2 != null;
@@ -38,3 +38,4 @@ public class FruitMove extends Move {
             detector.removeFigure(i2, j2, f2);
         }
     }
+}
