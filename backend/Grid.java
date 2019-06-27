@@ -1,7 +1,6 @@
 package game.backend;
 
 import game.backend.cell.Cell;
-import game.backend.cell.EffectCell;
 import game.backend.element.Candy;
 import game.backend.element.CandyColor;
 import game.backend.element.Element;
@@ -80,7 +79,7 @@ public abstract class Grid {
 	}
 	
 	public void clearContent(int i, int j) {
-		if(!g[i][j].getContent().isFruit){
+		if(!g[i][j].getContent().isFruit()){
 		g[i][j].clearContent();
 		}
 	}
