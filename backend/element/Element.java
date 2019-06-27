@@ -15,6 +15,10 @@ public abstract class Element {
 	public boolean isSolid() {
 		return true;
 	}
+
+	public boolean canExplode(){return true;}
+
+	public boolean canFormFigures(){return true;}
 	
 	public Direction[] explode() {
 		return null;
@@ -24,8 +28,7 @@ public abstract class Element {
 		return 0;
 	}
 
-	public boolean isFruit() {
+	public boolean isFruit(){
 		return false;
 	}
-
 }
