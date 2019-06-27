@@ -80,7 +80,9 @@ public abstract class Grid {
 	}
 	
 	public void clearContent(int i, int j) {
+		if(!g[i][j].getContent().isFruit){
 		g[i][j].clearContent();
+		}
 	}
 	
 	public void setContent(int i, int j, Element e) {
