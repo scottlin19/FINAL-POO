@@ -13,9 +13,15 @@ public class CandyAndFruitGeneratorCell extends CandyGeneratorCell {
 
     @Override
     public Element getContent() {
-        int candyLenght = CandyColor.values().length;
+        int candyLength = CandyColor.values().length;
 
-        int fruitLenght = FruitType.values().length;
+        int fruitLength = FruitType.values().length;
+        if (Math.random() < 0.1){
+            return new Fruit(FruitType.values()[(int) (Math.random() * fruitLength)]);
+
+        }
+        return new Candy(CandyColor.values()[(int) (Math.random() * candyLength)]);
+        /*
  
         int i = (int)(Math.random() * (candyLenght + fruitLenght));
      
@@ -24,6 +30,8 @@ public class CandyAndFruitGeneratorCell extends CandyGeneratorCell {
         }
      
         return new Fruit(FruitType.values()[i-candyLenght]);
+
+         */
 
     }
 }
