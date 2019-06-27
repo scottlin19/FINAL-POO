@@ -16,24 +16,29 @@ public class CandyMove extends Move {
 		super(grid);
 		this.grid = grid;
 	}
-	
+
 	@Override
 	public boolean internalValidation() {
 		this.detector = new FigureDetector(grid);
-		f1 = detector.checkFigure(i1, j1);
-		f2 = detector.checkFigure(i2, j2);
+		if(grid.get(i1,j1).canFormFigures()) {
+			f1 = detector.checkFigure(i1, j1);
+		}
+		if(grid.get(i2,j2).canFormFigures()) {
+			f2 = detector.checkFigure(i2, j2);
+		}
 		return f1 != null || f2 != null;
-	}	
+	}
 
 	@Override
 	public void removeElements() {
-		if (f1 != null && !grid.get(i1,j1).canFormFigures()) {
+		if (f1 != null) {
 			detector.removeFigure(i1, j1, f1);
 		}
-		if (f2 != null  && !grid.get(i2,j2).canFormFigures()) {
+		if (f2 != null) {
 			detector.removeFigure(i2, j2, f2);
 		}
 	}
 
 }
+
 
