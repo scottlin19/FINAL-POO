@@ -9,7 +9,7 @@ import game.backend.element.Wall;
 
 public class Level4 extends Grid {
 
-    private static int MAX_MOVES = 10;
+    private static int MAX_MOVES = 30;
     private static int REQUIRED_FRUIT_SCORE = 5;
 
     private int fruitScore;
@@ -92,6 +92,9 @@ public class Level4 extends Grid {
             if (cell.getContent().isFruit()) {
                 cell.clearContent();
                 addFruitScore();
+                fallElements();
+                System.out.println("Fruit en ["+row+"]["+i+"]");
+                i = 0;
 
 
             }
@@ -104,26 +107,7 @@ public class Level4 extends Grid {
         }
     }
 
-    @Override
-    public void fallElements() {
-        System.out.println("Level 4 fall elements");
-        int i = SIZE - 1;
-        while (i >= 0) {
-            int j = 0;
-            while (j < SIZE) {
-                if (g()[i][j].isEmpty()) {
-                    if (g()[i][j].fallUpperContent()) {
-                        checkForFruits(SIZE-1);
-                        i = SIZE;
-                        j = -1;
-                        break;
-                    }
-                }
-                j++;
-            }
-            i--;
-        }
-    }
+
 
      @Override
      public void clearContent(int i, int j) {
