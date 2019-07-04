@@ -1,12 +1,15 @@
 package game.backend.level;
 
 import game.backend.GameState;
+import game.backend.Grid;
 import game.backend.cell.CandyAndFruitGeneratorCell;
 import game.backend.cell.CandyGeneratorCell;
 import game.backend.cell.Cell;
 import game.backend.element.Wall;
+import game.backend.move.Move;
 
-public class Level4 extends Level {
+
+public class Level4 extends Grid {
 
     private static int MAX_MOVES = 30;
     private static int REQUIRED_FRUIT_SCORE = 5;
@@ -15,6 +18,7 @@ public class Level4 extends Level {
 
     private Cell wallCell;
     private Cell candyAndFruitGenCell;
+    private Move twm;
 
     @Override
     protected GameState newState() {
@@ -68,9 +72,10 @@ public class Level4 extends Level {
 
             getCell(SIZE - 1, i).setContent(candyGenCell.getContent());
             if (tryRemove(getCell(SIZE - 1, i)) != null) {
-                i = 0;
+                i = -1;
             }
         }
+
 
     }
 
@@ -110,9 +115,14 @@ public class Level4 extends Level {
 
      @Override
      public void clearContent(int i, int j) {
-         if(get(i,j).canExplode()) {
+      //   System.out.println("clearContent["+i+"]["+j+"]");
+         if(validCoordinates(i,j) && get(i,j).canExplode()) {
              getCell(i,j).clearContent();
          }
+     }
+
+     private boolean validCoordinates(int i , int j){
+        return i>= 0 && i < SIZE && j>= 0 && j < SIZE;
      }
 
 
