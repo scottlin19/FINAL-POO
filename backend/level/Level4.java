@@ -113,18 +113,7 @@ public class Level4 extends Grid {
 
 
 
-     @Override
-     public void clearContent(int i, int j) {
-      //   System.out.println("clearContent["+i+"]["+j+"]");
-         if(validCoordinates(i,j) && get(i,j).canExplode()) {
-             getCell(i,j).clearContent();
-         }
-     }
-
-     private boolean validCoordinates(int i , int j){
-        return i>= 0 && i < SIZE && j>= 0 && j < SIZE;
-     }
-
+ 
 
     private class Level4State extends GameState {
         private long requiredFruitScore;
