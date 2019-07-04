@@ -1,5 +1,6 @@
 package game.backend;
 
+
 import game.backend.cell.Cell;
 import game.backend.element.Candy;
 import game.backend.element.CandyColor;
@@ -61,12 +62,14 @@ public abstract class Grid {
 
 
 	public void fallElements() {
+		System.out.println("fALLELEMENTS de grid");
 		int i = SIZE - 1;
 		while (i >= 0) {
 			int j = 0;
 			while (j < SIZE) {
 				if (g[i][j].isEmpty()) {
 					if (g[i][j].fallUpperContent()) {
+
 						i = SIZE;
 						j = -1;
 						break;
@@ -79,9 +82,13 @@ public abstract class Grid {
 	}
 	
 	public void clearContent(int i, int j) {
-	
-		g[i][j].clearContent();
-	
+		if(validCoordinates(i,j) && get(i,j).canExplode()) {
+			getCell(i,j).clearContent();
+		}
+	}
+
+	private boolean validCoordinates(int i , int j){
+		return i>= 0 && i < SIZE && j>= 0 && j < SIZE;
 	}
 	
 	public void setContent(int i, int j, Element e) {
@@ -90,6 +97,7 @@ public abstract class Grid {
 	
 	public boolean tryMove(int i1, int j1, int i2, int j2) {
 		Move move = moveMaker.getMove(i1, j1, i2, j2);
+		System.out.println(move);
 		swapContent(i1, j1, i2, j2);
 		if (move.isValid()) {
 			System.out.println("Valido");
