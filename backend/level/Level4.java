@@ -1,13 +1,12 @@
 package game.backend.level;
 
 import game.backend.GameState;
-import game.backend.Grid;
 import game.backend.cell.CandyAndFruitGeneratorCell;
 import game.backend.cell.CandyGeneratorCell;
 import game.backend.cell.Cell;
 import game.backend.element.Wall;
 
-public class Level4 extends Grid {
+public class Level4 extends Level {
 
     private static int MAX_MOVES = 30;
     private static int REQUIRED_FRUIT_SCORE = 5;
