@@ -47,36 +47,33 @@ public class GameApp extends Application {
 		buttonLv1.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				CandyGame game = new CandyGame(Level1.class);
-				CandyFrame frame = new CandyFrame(game);
-				Scene scene = new Scene(frame);
-				primaryStage.setScene(scene);
+				SetLevel(Level1.class,primaryStage);
 			}
 		});
 
 		buttonLv2.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-
-				CandyGame game = new CandyGame(Level2.class);
-				CandyFrame frame = new CandyFrame(game);
-				Scene scene = new Scene(frame);
-				primaryStage.setScene(scene);
+				SetLevel(Level2.class,primaryStage);
 			}
 		});
 
 		buttonLv3.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				CandyGame game = new CandyGame(Level4.class);
-				CandyFrame frame = new CandyFrame(game);
-				Scene scene = new Scene(frame);
-				primaryStage.setScene(scene);
+				SetLevel(Level4.class,primaryStage);
 			}
 		});
 
 		primaryStage.setResizable(false);
 		primaryStage.show();
+	}
+
+	public void SetLevel(Class<?> levelClass,Stage primaryStage){
+		CandyGame game = new CandyGame(levelClass);
+		CandyFrame frame = new CandyFrame(game);
+		Scene scene = new Scene(frame);
+		primaryStage.setScene(scene);
 	}
 
 }
