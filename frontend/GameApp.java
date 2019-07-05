@@ -17,6 +17,8 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.scene.text.Text;
+import javafx.scene.text.FontWeight;
 
 public class GameApp extends Application {
 
