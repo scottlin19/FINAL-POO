@@ -1,46 +1,26 @@
 package game.backend.level;
 import game.backend.GameState;
-import game.backend.Grid;
-import game.backend.cell.CandyGeneratorCell;
-import game.backend.cell.Cell;
 import game.backend.cell.Effects;
-import game.backend.element.Wall;
-import javafx.scene.effect.Effect;
-import javafx.scene.effect.Light;
-import javafx.scene.effect.Lighting;
-import javafx.scene.paint.Color;
 
 
 
 
 public class Level2 extends Level {
 
-    private static int REQUIRED_SCORE = 5000;
     private static int MAX_MOVES = 20;
     private static int MAX_GOLDEN_CELLS = SIZE* SIZE;
 
     private int goldenCells;
-    private Effect effect;
-
-    public Level2(){
-        Light.Distant spotLight = new Light.Distant();
-        spotLight.setColor(Color.YELLOW);
-        spotLight.setElevation(100);
-        effect = new Lighting(spotLight);
-    }
-
 
     @Override
     protected GameState newState() {
-        return new Level2.Level2State(REQUIRED_SCORE, MAX_MOVES);
+        return new Level2.Level2State(MAX_MOVES);
     }
 
     private class Level2State extends GameState {
-        private long requiredScore;
         private long maxMoves;
 
-        public Level2State(long requiredScore, int maxMoves) {
-            this.requiredScore = requiredScore;
+        public Level2State(int maxMoves) {
             this.maxMoves = maxMoves;
         }
 
