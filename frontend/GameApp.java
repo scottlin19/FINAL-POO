@@ -27,9 +27,12 @@ public class GameApp extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 
-		Label label = new Label("Select level:");
-		label.setFont(new Font("Arial", 48));
-		label.setTextFill(Color.BLACK);
+		Text text  = new Text("Select level:");
+		text.setFont(Font.font("Courier New", FontWeight.BOLD,48));
+		text.setFill(new Color(1,0.14,0.83,1));
+		Label label = new Label(text.getText());
+		label.setFont(text.getFont());
+
 		Button buttonLv1 = new Button("Level 1");
 		Button buttonLv2 = new Button(("Level 2"));
 		Button buttonLv3 = new Button("Level 3");
