@@ -36,7 +36,7 @@ public class Level2 extends Level {
 
         @Override
         public String printScore() {
-            return "Golden Cells Left: " + getGoldenCellsScore() + "   |  "+ getScore();
+            return "Golden Cells Left: " + getGoldenCellsScore() + " | Moves: " + (maxMoves - getMoves()) + " | Score: "+ getScore();
         }
 
         private int getGoldenCellsScore(){

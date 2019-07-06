@@ -6,7 +6,6 @@ import game.backend.cell.CandyAndFruitGeneratorCell;
 import game.backend.cell.CandyGeneratorCell;
 import game.backend.cell.Cell;
 import game.backend.element.Wall;
-import game.backend.move.Move;
 
 
 public class Level4 extends Grid {
@@ -15,10 +14,8 @@ public class Level4 extends Grid {
     private static int REQUIRED_FRUIT_SCORE = 5;
 
     private int fruitScore;
-
     private Cell wallCell;
     private Cell candyAndFruitGenCell;
-    private Move twm;
 
     @Override
     protected GameState newState() {
@@ -134,7 +131,7 @@ public class Level4 extends Grid {
 
         @Override
         public String printScore() {
-            return "FRUITS: "+ (requiredFruitScore - getFruitScore()) +" | MOVES: "+(maxMoves - getMoves()) + " | SCORE: "+ getScore();
+            return "Fruits: "+ (requiredFruitScore - getFruitScore()) +" | Moves: "+(maxMoves - getMoves()) + " | Score: "+ getScore();
         }
 
 
