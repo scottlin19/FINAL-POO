@@ -25,7 +25,7 @@ public class FruitMove extends Move {
         if(!grid.get(i1,j1).isFruit()) {
             f1 = detector.checkFigure(i1, j1);
         }
-        if(grid.get(i2,j2).isFruit()) {
+        if(!grid.get(i2,j2).isFruit()) {
             f2 = detector.checkFigure(i2, j2);
         }
         return f1 != null || f2 != null;
