@@ -18,7 +18,6 @@ public abstract class Element {
 
 	public boolean canExplode(){return true;}
 
-	public boolean canFormFigures(){return true;}
 	
 	public Direction[] explode() {
 		return null;
