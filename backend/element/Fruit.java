@@ -16,11 +16,6 @@ public class Fruit extends Element {
         return type;
     }
 
-    @Override
-    public boolean canFormFigures(){
-
-        return false;
-    }
 
     @Override
     public boolean canExplode(){
