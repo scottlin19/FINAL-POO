@@ -81,9 +81,9 @@ public class CandyFrame extends VBox {
 					String message = game().printScore();
 					if (game().isFinished()) {
 						if (game().playerWon()) {
-							message = message + " Finished - Player Won!";
+							message = "Finished - Player Won! | " + message;
 						} else {
-							message = message + " Finished - Loser !";
+							message = " Finished - Loser ! | " + message;
 						}
 					}
 
