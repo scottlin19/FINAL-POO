@@ -10,7 +10,7 @@ import game.backend.element.VerticalStripedCandy;
 import game.backend.element.Wall;
 import game.backend.element.WrappedCandy;
 import javafx.scene.image.Image;
-import game.backend.cell.FruitType;
+import game.backend.element.FruitType;
 import game.backend.element.Fruit;
 
 import java.util.HashMap;

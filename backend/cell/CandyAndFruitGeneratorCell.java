@@ -1,10 +1,7 @@
 package game.backend.cell;
 
 import game.backend.Grid;
-import game.backend.element.Candy;
-import game.backend.element.CandyColor;
-import game.backend.element.Element;
-import game.backend.element.Fruit;
+import game.backend.element.*;
 
 public class CandyAndFruitGeneratorCell extends CandyGeneratorCell {
 
@@ -22,17 +19,5 @@ public class CandyAndFruitGeneratorCell extends CandyGeneratorCell {
 
         }
         return new Candy(CandyColor.values()[(int) (Math.random() * candyLength)]);
-        /*
- 
-        int i = (int)(Math.random() * (candyLenght + fruitLenght));
-     
-        if(i < candyLenght){
-            return new Candy(CandyColor.values()[i]);
-        }
-     
-        return new Fruit(FruitType.values()[i-candyLenght]);
-
-         */
-
     }
 }

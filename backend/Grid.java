@@ -7,8 +7,6 @@ import game.backend.element.CandyColor;
 import game.backend.element.Element;
 import game.backend.move.Move;
 import game.backend.move.MoveMaker;
-
-
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,10 +19,10 @@ public abstract class Grid {
 
 	private Cell[][] g = new Cell[SIZE][SIZE];
 	private Map<Cell, Point> gMap = new HashMap<>();
-	private GameState state;
-	private List<GameListener> listeners = new ArrayList<>();
-	private MoveMaker moveMaker;
-	private FigureDetector figureDetector;
+	protected GameState state;
+	protected List<GameListener> listeners = new ArrayList<>();
+	protected MoveMaker moveMaker;
+	protected FigureDetector figureDetector;
 	
 	protected abstract GameState newState();
 	protected abstract void fillCells();
@@ -62,7 +60,7 @@ public abstract class Grid {
 
 
 	public void fallElements() {
-		System.out.println("fALLELEMENTS de grid");
+		System.out.println("fallElements de grid");
 		int i = SIZE - 1;
 		while (i >= 0) {
 			int j = 0;

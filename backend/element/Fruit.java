@@ -1,7 +1,5 @@
 package game.backend.element;
 
-import game.backend.cell.FruitType;
-
 import java.util.Objects;
 
 public class Fruit extends Element {
@@ -33,6 +31,7 @@ public class Fruit extends Element {
     public boolean isFruit(){
         return true;
     }
+
     public void setType(FruitType type) {
         this.type = type;
     }
