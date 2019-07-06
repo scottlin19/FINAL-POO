@@ -40,13 +40,13 @@ public class GameApp extends Application {
 		Button buttonLv3 = new Button("Level 3");
 		VBox vBox = new VBox(5);  // layout
 		HBox hBox = new HBox(5);
-		Scene scene1 = new Scene(vBox,585,585);
+		Scene menuScene = new Scene(vBox,585,585);
 		hBox.getChildren().addAll(buttonLv1,buttonLv2,buttonLv3);
 		hBox.setAlignment(Pos.CENTER);
 		vBox.getChildren().addAll(label,hBox);
 		vBox.setBackground(new Background(new BackgroundImage(new Image("images/fondo.png"),
 				BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER,BackgroundSize.DEFAULT)));
-		primaryStage.setScene(scene1);
+		primaryStage.setScene(menuScene);
 		vBox.setAlignment(Pos.CENTER);
 
 		buttonLv1.setOnAction(new EventHandler<ActionEvent>() {
